@@ -6,7 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | [Challenge Name Here]</title>
+  <title>Frontend Mentor | chat-app CSS illustration</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -104,14 +104,15 @@ html{font-size: 100%;}
 
 body{
   max-width: 375px;
+  min-height: 200vh;
   font-family: "Rubik";
-  border:1px solid red;
 }
-div.back{
-  border:1px solid red;
+.background{
+  padding-top:0.1px; /* preventing margin-collapse */
   background-image: url("images/background-mobile-1.svg"), url("images/background-mobile-2.svg");
   background-repeat: no-repeat, no-repeat;
-  background-position: left top, right bottom
+  background-position: left top, right bottom;
+  
 }
 
 .mobile{
@@ -210,15 +211,39 @@ div.back{
   margin:32px;
   line-height: 28px;  
 }
-h1{margin:24px 0px;}
+h1{
+  margin:22px 0px;
+  line-height: 47px;
+}
+
+@media screen and (min-width:1440px) {
+  body{max-width: 1440px;}
+
+  .background{
+    display:flex;
+    min-height: 800px;
+    align-items: center;
+    background-image: url("images/background-desktop-1.svg"), url("images/background-desktop-2.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right bottom;
+  }
+  .mobile{margin-left:363px;}
+
+  .simple-booking{
+    width:445px;
+    text-align: left;
+    margin-right:250px;
+  }
+
+}
 
 
   </style>
 </head>
 <body class="margin-auto">
 
-  <div class="back">
-    <div class="mobile margin-auto">
+  <div class="background">
+    <div class="mobile">
       <div class="app bg-color-app margin-auto">
         <div class="avatar bg-color-avatar">
           <div class="avatar_gap margin-auto"></div>  
@@ -234,7 +259,7 @@ h1{margin:24px 0px;}
         </div>
         <div class="left">
           <div class="message bg-color-message-avatar border-radius-avatar">
-            <p class="fs-message fc-message-avatar fw-message">That sounds great. I’d be happy to discuss more.</p>
+            <p class="fs-message fc-message-avatar fw-message">That sounds great. I’d be happy to discuss more. </p>
           </div>
           <div class="message bg-color-message-avatar border-radius-avatar">
             <p class="fs-message fc-message-avatar fw-message">Could you send over some pictures of your dog, please?</p>
@@ -286,7 +311,7 @@ h1{margin:24px 0px;}
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Harm Intemann</a>.
   </div>
 </body>
 </html>
