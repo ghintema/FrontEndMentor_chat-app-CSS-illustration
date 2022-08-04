@@ -44,8 +44,10 @@
   --fw-message:400;
   --fw-price: 700;
 
+  --fc-primary-heading:#3E2753;
   --fc-message-avatar:#9341C8;
   --fc-message-customer:#6E5D7E; 
+  --fc-text:#A39DA9;
 
   --bg-color-message-avatar:#eee5f4;
   --bg-color-message-customer:white;
@@ -53,8 +55,8 @@
   --bg-color-app:#F5F3F7;
   --bg-color-avatar:linear-gradient(225deg, #E844FF 0%, #8739FF 100%);
 
-  --border-radius-avatar:border-radius: 10px 10px 10px 4px;
-  --border-radius-customer:border-radius: 10px 10px 4px 10px;
+  --border-radius-avatar:10px 10px 10px 4px;
+  --border-radius-customer:10px 10px 4px 10px;
 
 }
 
@@ -71,8 +73,10 @@
 .fw-message{font-weight: var(--fw-message);}
 .fw-price{font-weight: var(--fw-price);}
 
+.fc-primary-heading{color:var(--fc-primary-heading)}
 .fc-message-avatar{color:var(--fc-message-avatar)}
 .fc-message.customer{color:var(--fc-message-customer)}
+.fc-text{color:var(--fc-text)}
 
 .bg-color-message-avatar{background-color: var(--bg-color-message-avatar);}
 .bg-color-message-customer{background-color: var(--bg-color-message-customer);}
@@ -83,45 +87,202 @@
 .border-radius-avatar{border-radius: var(--border-radius-avatar);}
 .border-radius-customer{border-radius: var(--border-radius-customer)}
 
+.left{float:left}
+.right{float:right}
+.margin-auto{margin:0px auto}
+.white{color:white}
+
 /* End of defintion of utility-classes */
 
-  
+html{font-size: 100%;}
+
+* {
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  max-width: 375px;
+  font-family: "Rubik";
+  border:1px solid red;
+}
+div.back{
+  border:1px solid red;
+  background-image: url("images/background-mobile-1.svg"), url("images/background-mobile-2.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right bottom
+}
+
+.mobile{
+  width: 247px;
+  height: auto;
+  margin:63px auto;
+  padding:11px 9.5px;
+  border-radius: 30px;  
+  background-color: white;
+  box-shadow: 0px 30px 60px -10px rgba(62, 39, 83, 0.251202);
+}
+
+.app{
+  width: 100%;
+  min-height: 100%;
+  border-radius: 20px;  
+}
+
+.app::after { /*Pseudo-element to clear the float */
+  content: "";
+  clear: both;
+  display: table;
+}
+.avatar{
+  width:100%;
+  height: 66px;
+  border-radius: 20px 20px 0px 0px;
+}
+.avatar_gap{
+  width:129px;
+  height: 18px; /* 29px - 11px */
+  background-color:white;
+  border-radius: 0px 0px 14px 14px;
+}
+.container-flex{
+  display: flex;
+  gap:8px;
+  justify-content: flex-start;
+  align-items: center;
+  margin:12px 15px;
+}
+.avatar_description{ margin-right: 35%; }
+
+.avatar_icon{
+  width:24px;
+  border-radius: 24px;
+  border:1px solid white;
+}
+
+.message{
+  max-width: 128px;
+  padding:8px 8px;
+  margin: 8px;
+}
+.dog{
+  width:40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.dog_images{
+  display: flex;
+  justify-content: flex-end;
+  margin:8px;
+  gap:8px;
+}
+.container-grid {
+  max-width:250px;
+  display: grid;
+  grid-template-columns: 20px 92px auto;
+  align-items: center;
+}
+
+.type-message{
+  position: relative;
+  bottom:-8px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 8px;
+  height: 34px;
+  border-radius: 17px;
+  background-color:white;
+  clear:both;
+}
+.type-message > p {
+  color:#C5C9CC;
+  margin:13px 19px;
+}
+
+.icon_send{
+  width: 24px;
+  margin:5px;
+}
+.simple-booking {
+  text-align: center;
+  margin:32px;
+  line-height: 28px;  
+}
+h1{margin:24px 0px;}
+
+
   </style>
 </head>
-<body>
+<body class="margin-auto">
 
-
-  <div class="mobile">
-    <div class="avatar"></div>
-    <div class="app "></div>
+  <div class="back">
+    <div class="mobile margin-auto">
+      <div class="app bg-color-app margin-auto">
+        <div class="avatar bg-color-avatar">
+          <div class="avatar_gap margin-auto"></div>  
+          <div class="container-flex">
+            <img class="arrow-back" src="images/arrow-back.svg" alt="icon arrow back" >
+            <img class="avatar_icon" src="images/avatar.jpg" alt="thumbnail of avatar">
+            <div class="avatar_description">
+              <p class="white fs-avatar">Samuel Green</p>
+              <p class="white fs-message">Available to work</p>
+            </div>
+            <img class="menu_icon" src="images/doener-icon.svg" alt="menu-icon">
+          </div>
+        </div>
+        <div class="left">
+          <div class="message bg-color-message-avatar border-radius-avatar">
+            <p class="fs-message fc-message-avatar fw-message">That sounds great. I’d be happy to discuss more.</p>
+          </div>
+          <div class="message bg-color-message-avatar border-radius-avatar">
+            <p class="fs-message fc-message-avatar fw-message">Could you send over some pictures of your dog, please?</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="dog_images ">
+            <img class="dog " src="images/dog-image-1.jpg" alt="thumbnail of a dog" >
+            <img class="dog " src="images/dog-image-2.jpg" alt="thumbnail of a dog" >
+            <img class="dog " src="images/dog-image-3.jpg" alt="thumbnail of a dog" >
+          </div>
+          <div class="message bg-color-message-customer border-radius-customer">
+            <p class="fs-message fc-message-customer fw-message">  Here are a few pictures. She’s a happy girl!</p>
+          </div>
+        </div>
+        <div class="left">
+          <div class="message bg-color-message-avatar border-radius-avatar">
+            <p class="fs-message fc-message-avatar fw-message">She looks so happy! The time we discussed works. How long shall I take her out for?</p>
+          </div>
+          <div class="message container-grid bg-color-offer border-radius-avatar">
+            <img class="checkbox" src="images/checkbox-icon.svg" alt="checkbox icon" >
+            <p class="white fs-message">30 minute walk</p>
+            <p class="price white fs-price fw-price">$29</p>
+          </div>
+          <div class="message container-grid  bg-color-offer border-radius-avatar">
+            <img class="checkbox" src="images/checkbox-icon.svg" alt="checkbox icon" >
+            <p class="white fs-message">1 hour walk</p>
+            <p class="price white fs-price fw-price">$49</p>
+          </div>
+        </div>
+        <div class="type-message margin-auto">
+          <p class="fs-message fw-message">Type a message</p>
+          <img src="images/send-button.svg" alt="" class="icon_send">
+        </div>
+      </div>
+    </div>
+    <div class="simple-booking">
+      <h1 class="fs-primary-heading fw-primary-heading fc-primary-heading">Simple booking</h1>
+      <p class="fs-text fw-text fc-text">Stay in touch with our dog walkers through the chat interface. This makes it easy to 
+        discuss arrangements and make bookings. Once the walk has been completed you can rate 
+        your walker and book again all through the chat.</p>
+    </div>
   </div>
 
-  Samuel Green
-  Available to Walk
+  
 
-  That sounds great. I’d be happy with that.
 
-  Could you send over some pictures of your dog, please?
-
-  Here are a few pictures. She’s a happy girl!
-
-  Can you make it?
-
-  She looks so happy! The time we discussed works. How long shall I take her out for?
-
-  30 minute walk
-  $29
-
-  1 hour walk
-  $49
-
-  Type a message…
-
-  Simple booking
-
-  Stay in touch with our dog walkers through the chat interface. This makes it easy to 
-  discuss arrangements and make bookings. Once the walk has been completed you can rate 
-  your walker and book again all through the chat.
+ 
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
@@ -132,4 +293,3 @@
 
 
 
-  
